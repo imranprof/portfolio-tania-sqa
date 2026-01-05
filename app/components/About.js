@@ -57,14 +57,14 @@ export default function About() {
   }, { scope: sectionRef })
 
   return (
-    <section ref={sectionRef} id="about" className="section-container bg-white">
+    <section ref={sectionRef} id="about" className="section-container relative">
       <div className="max-w-4xl mx-auto">
-        <h2 ref={titleRef} className="text-4xl font-bold text-center text-gray-900 mb-4">
+        <h2 ref={titleRef} className="text-4xl md:text-5xl font-bold text-center text-white mb-4">
           About Me
         </h2>
-        <div className="w-24 h-1 bg-primary-600 mx-auto mb-12"></div>
+        <div className="w-24 h-1 bg-gradient-to-r from-primary-500 to-accent-pink mx-auto mb-12 rounded-full"></div>
         
-        <div ref={contentRef} className="prose prose-lg max-w-none text-gray-700 space-y-6">
+        <div ref={contentRef} className="prose prose-lg max-w-none text-gray-300 space-y-6">
           <p>
             I am a dedicated Software Quality Assurance Engineer with a passion for
             delivering high-quality software products. With expertise in both manual
@@ -86,17 +86,17 @@ export default function About() {
         </div>
 
         <div ref={statsRef} className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="text-center p-6 bg-primary-50 rounded-lg">
-            <div className="text-4xl font-bold text-primary-600 mb-2">5+</div>
-            <div className="text-gray-700">Years Experience</div>
+          <div className="text-center p-6 bg-dark-300/50 backdrop-blur-sm rounded-xl border border-primary-500/20 hover:border-primary-400/40 transition-all">
+            <div className="text-4xl font-bold bg-gradient-to-r from-primary-400 to-primary-300 bg-clip-text text-transparent mb-2">5+</div>
+            <div className="text-gray-400">Years Experience</div>
           </div>
-          <div className="text-center p-6 bg-primary-50 rounded-lg">
-            <div className="text-4xl font-bold text-primary-600 mb-2">100+</div>
-            <div className="text-gray-700">Projects Tested</div>
+          <div className="text-center p-6 bg-dark-300/50 backdrop-blur-sm rounded-xl border border-primary-500/20 hover:border-primary-400/40 transition-all">
+            <div className="text-4xl font-bold bg-gradient-to-r from-primary-400 to-primary-300 bg-clip-text text-transparent mb-2">100+</div>
+            <div className="text-gray-400">Projects Tested</div>
           </div>
-          <div className="text-center p-6 bg-primary-50 rounded-lg">
-            <div className="text-4xl font-bold text-primary-600 mb-2">50+</div>
-            <div className="text-gray-700">Test Suites Created</div>
+          <div className="text-center p-6 bg-dark-300/50 backdrop-blur-sm rounded-xl border border-primary-500/20 hover:border-primary-400/40 transition-all">
+            <div className="text-4xl font-bold bg-gradient-to-r from-primary-400 to-primary-300 bg-clip-text text-transparent mb-2">50+</div>
+            <div className="text-gray-400">Test Suites Created</div>
           </div>
         </div>
       </div>
