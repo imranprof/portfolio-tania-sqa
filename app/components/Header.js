@@ -44,7 +44,7 @@ export default function Header() {
               onClick={() => scrollToSection('hero')}
               className="text-2xl font-bold bg-gradient-to-r from-primary-400 to-accent-pink bg-clip-text text-transparent hover:from-primary-300 hover:to-accent-pink transition-all"
             >
-              SQA Portfolio
+              TANIA KHATUN
             </button>
           </div>
 
