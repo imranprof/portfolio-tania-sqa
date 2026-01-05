@@ -10,6 +10,7 @@ export default function Header() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20)
     }
+
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
@@ -24,14 +25,20 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-dark-300/80 backdrop-blur-md shadow-lg shadow-primary-500/10 border-b border-primary-500/20' 
-          : 'bg-transparent'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50
+        transition-all duration-300
+        translate-z-0 will-change-transform
+        overflow-hidden
+        ${
+          isScrolled
+            ? 'bg-dark-300/80 backdrop-blur-md shadow-lg shadow-primary-500/10 border-b border-primary-500/20'
+            : 'bg-transparent border-b border-transparent'
+        }
+      `}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
+          {/* Logo */}
           <div className="flex-shrink-0">
             <button
               onClick={() => scrollToSection('hero')}
@@ -44,30 +51,15 @@ export default function Header() {
           {/* Desktop Menu */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
-              <button
-                onClick={() => scrollToSection('about')}
-                className="text-gray-300 hover:text-primary-400 px-3 py-2 text-sm font-medium transition-colors"
-              >
-                About
-              </button>
-              <button
-                onClick={() => scrollToSection('skills')}
-                className="text-gray-300 hover:text-primary-400 px-3 py-2 text-sm font-medium transition-colors"
-              >
-                Skills
-              </button>
-              <button
-                onClick={() => scrollToSection('projects')}
-                className="text-gray-300 hover:text-primary-400 px-3 py-2 text-sm font-medium transition-colors"
-              >
-                Projects
-              </button>
-              <button
-                onClick={() => scrollToSection('contact')}
-                className="text-gray-300 hover:text-primary-400 px-3 py-2 text-sm font-medium transition-colors"
-              >
-                Contact
-              </button>
+              {['about', 'skills', 'projects', 'contact'].map((item) => (
+                <button
+                  key={item}
+                  onClick={() => scrollToSection(item)}
+                  className="text-gray-300 hover:text-primary-400 px-3 py-2 text-sm font-medium transition-colors"
+                >
+                  {item.charAt(0).toUpperCase() + item.slice(1)}
+                </button>
+              ))}
             </div>
           </div>
 
@@ -107,30 +99,15 @@ export default function Header() {
         {isMobileMenuOpen && (
           <div className="md:hidden bg-dark-300/95 backdrop-blur-md border-t border-primary-500/20">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              <button
-                onClick={() => scrollToSection('about')}
-                className="block w-full text-left text-gray-300 hover:text-primary-400 px-3 py-2 text-base font-medium transition-colors"
-              >
-                About
-              </button>
-              <button
-                onClick={() => scrollToSection('skills')}
-                className="block w-full text-left text-gray-300 hover:text-primary-400 px-3 py-2 text-base font-medium transition-colors"
-              >
-                Skills
-              </button>
-              <button
-                onClick={() => scrollToSection('projects')}
-                className="block w-full text-left text-gray-300 hover:text-primary-400 px-3 py-2 text-base font-medium transition-colors"
-              >
-                Projects
-              </button>
-              <button
-                onClick={() => scrollToSection('contact')}
-                className="block w-full text-left text-gray-300 hover:text-primary-400 px-3 py-2 text-base font-medium transition-colors"
-              >
-                Contact
-              </button>
+              {['about', 'skills', 'projects', 'contact'].map((item) => (
+                <button
+                  key={item}
+                  onClick={() => scrollToSection(item)}
+                  className="block w-full text-left text-gray-300 hover:text-primary-400 px-3 py-2 text-base font-medium transition-colors"
+                >
+                  {item.charAt(0).toUpperCase() + item.slice(1)}
+                </button>
+              ))}
             </div>
           </div>
         )}
@@ -138,4 +115,3 @@ export default function Header() {
     </header>
   )
 }
-
